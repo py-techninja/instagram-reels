@@ -10,7 +10,7 @@ function App() {
         <Route path="/" element={<ScrapeReels />} />
 
         {/* PUBLIC AUDIO PAGE */}
-        <Route path="/audio/:audioId" element={<AudioView />} />
+        <Route path="/audio/audioId" element={<ScrapeReels />} />
 
         {/* SCRAPER UI PAGE */}
         <Route path="/scrape/reels" element={<ScrapeReels />} />
