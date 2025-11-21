@@ -149,7 +149,8 @@ export async function getAudioData(audioId: string) {
   const { data: reels } = await supabase
     .from("audio_scrape_data")
     .select("*")
-    .eq("session_id", session.id)
+    .eq("audio_id", audioId)
+    //.eq("session_id", session.id)
     .order("views", { descending: true });
 
   return {
