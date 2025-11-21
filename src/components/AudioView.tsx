@@ -1,8 +1,39 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAudioData } from "../../supabase/functions/instagram-scraper/index";
+//import { getAudioData } from "../../supabase/functions/instagram-scraper/index";
 import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
+
+export async function getAudioData(audioId: string) {
+  const { data: session } = await supabase
+    .from("audio_scrape_sessions")
+    .select("*")
+    .eq("audio_id", audioId)
+    .maybeSingle();
+
+  if (!session) return null;
+
+  const { data: reels } = await supabase
+    .from("audio_scrape_data")
+    .select("*")
+    .eq("audio_id", audioId)
+    //.eq("session_id", session.id)
+    .order("views", { descending: true });
+
+  const metadata = {
+      totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
+      totalLikes: reels?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
+      totalComments: reels?.reduce((sum, r) => sum + (r.comments || 0), 0) || 0,
+      totalPosts: session.total_posts,
+      scrapedPosts: reels.length,
+      percentageScraped: session.total_posts > 0 ? Math.round((reels.length / session.total_posts) * 100) : 0,
+  }
+  return {
+    metadata: metadata,
+    reels: reels || [],
+  };
+}
+
 
 export default function AudioView() {
   const { audioId } = useParams();
