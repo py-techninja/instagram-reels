@@ -97,6 +97,7 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   const cleaned = rawText.replace(/^for\s*\(;;\);\s*/, "");
   const data = JSON.parse(cleaned);
   console.log(data)
+  return data
   const items = data.payload.items;
   const pagingInfo = data.payload.paging_info;
   
