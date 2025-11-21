@@ -6,9 +6,10 @@ import { createClient } from "@supabase/supabase-js";
   
 async function getAudioData(audioId: string) {
   const supabase = createClient(
-    process.env.get("SUPABASE_URL") || "",
-    process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
+    import.meta.env.VITE_SUPABASE_URL,
+    import.meta.env.VITE_SUPABASE_ANON_KEY
   );
+
   
   const { data: session } = await supabase
     .from("audio_scrape_sessions")
