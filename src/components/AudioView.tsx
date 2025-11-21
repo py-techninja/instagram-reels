@@ -11,6 +11,8 @@ export async function getAudioData(audioId: string) {
     process.env.get("SUPABASE_URL") || "",
     process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
   );
+
+  console.log(supabase)
   
   const { data: session } = await supabase
     .from("audio_scrape_sessions")
