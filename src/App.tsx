@@ -133,11 +133,13 @@ function App() {
       "Are you sure you want to restart this scraping?"
     );
   
-    if (!confirmRestart) return; // user cancelled
+    if (confirmRestart) {
+      handleStop();
+      await new Promise(resolve => setTimeout(resolve, 300));
+      startScraping(audioId, undefined, true);
+    } 
   
-    handleStop();
-    await new Promise(resolve => setTimeout(resolve, 300));
-    startScraping(audioId, undefined, true);
+    
   };
 
 
