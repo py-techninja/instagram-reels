@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAudioData } from "../supabase/functions/instagram-scraper/index";
+import { getAudioData } from "../../supabase/functions/instagram-scraper/index";
 import MetadataDisplay from "../components/MetadataDisplay";
 import ReelsTable from "../components/ReelsTable";
 
