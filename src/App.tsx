@@ -18,6 +18,7 @@ function App() {
   const [error, setError] = useState('');
   const [interval, setInterval] = useState(2);
   const [showIntervalInput, setShowIntervalInput] = useState(false);
+  const [showRestartDialog, setShowRestartDialog] = useState(false);
 
   const scrapingRef = useRef(false);
   const pausedRef = useRef(false);
@@ -128,18 +129,19 @@ function App() {
     }
   };
 
-  const handleRestart = async () => {
-    const confirmRestart = window.confirm(
-      "Are you sure you want to restart this scraping?"
-    );
+  const handleRestart = () => {
+    setShowRestartDialog(true);
+  };
+
+  const confirmRestart = async () => {
+    setShowRestartDialog(false);
+    handleStop();
+    await new Promise(resolve => setTimeout(resolve, 300));
+    startScraping(audioId, undefined, true);
+  };
   
-    if (confirmRestart) {
-      handleStop();
-      await new Promise(resolve => setTimeout(resolve, 300));
-      startScraping(audioId, undefined, true);
-    } 
-  
-    
+  const cancelRestart = () => {
+    setShowRestartDialog(false);
   };
 
 
@@ -203,7 +205,37 @@ function App() {
                   </button>
                 </>
               )}
+              {showRestartDialog && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                  <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 w-[350px] shadow-lg">
+                    <h2 className="text-lg font-semibold mb-4">
+                      Confirm Restart
+                    </h2>
+                    <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-6">
+                      Are you sure you want to restart this scraping?
+                    </p>
+              
+                    <div className="flex justify-end gap-3">
+                      <button
+                        onClick={cancelRestart}
+                        className="px-4 py-2 bg-gray-200 dark:bg-neutral-700 rounded-md"
+                      >
+                        Cancel
+                      </button>
+              
+                      <button
+                        onClick={confirmRestart}
+                        className="px-4 py-2 bg-red-600 text-white rounded-md"
+                      >
+                        Restart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
             </div>
+            
 
             <div className="relative">
               <button
