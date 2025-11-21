@@ -100,12 +100,21 @@ function App() {
     await performScrape(sessionId_);
   };
 
+  const handleStart = async () => {
+    handleStop();
+    await new Promise(resolve => setTimeout(resolve, 300));
+    startScraping(audioId, undefined, false);
+  };
+  
   const handlePause = () => {
     pausedRef.current = !pausedRef.current;
-    setPaused(!paused);
-    if (!paused) {
+    setPaused(pausedRef.current );
+    if (pausedRef.current) {
       setLoading(false);
+    }else{
+      handleStart()
     }
+    
   };
 
   const handleStop = () => {
