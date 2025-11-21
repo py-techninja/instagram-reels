@@ -137,6 +137,27 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   };
 }
 
+export async function getAudioData(audioId: string) {
+  const { data: session } = await supabase
+    .from("audio_scrape_sessions")
+    .select("*")
+    .eq("audio_id", audioId)
+    .maybeSingle();
+
+  if (!session) return null;
+
+  const { data: reels } = await supabase
+    .from("audio_scrape_data")
+    .select("*")
+    .eq("session_id", session.id)
+    .order("views", { ascending: true });
+
+  return {
+    metadata: session,
+    reels: reels || [],
+  };
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
