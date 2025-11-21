@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-//import { getAudioData } from "../../supabase/functions/instagram-scraper/index";
 import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
-
 import { createClient } from "@supabase/supabase-js";
   
-
 const supabase = createClient(
   process.env.get("SUPABASE_URL") || "",
   process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
