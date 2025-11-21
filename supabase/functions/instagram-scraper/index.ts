@@ -45,25 +45,25 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
     __d: "www",
     __user: "0",
     __a: "1",
-    __req: "2",
-    __hs: "20410.HYP:instagram_web_pkg.2.1...0",
+    __req: "t",
+    __hs: "20413.HYP:instagram_web_pkg.2.1...0",
     dpr: "1",
-    __ccg: "MODERATE",
-    __rev: "1030040670",
-    __s: "dxwz8d:h9ut6m:ioizb7",
-    __hsi: "7574084181476789634",
-    __dyn: "7xeUjG1mxu1syUbFp41twpUnwgU7SbzEdF8aUco2qwJxS0DU2wx609vCwjE1EE2Cw8G11wBz81s8hwGxu786a3a1YwBgao6C0Mo2swlo8od8-U2zxe2GewGw9a361qwuEjUlwhEe87q0oa2-azqwt8d-2u2J0bS1LwTwKG1pg2fwxyo6O1FwlA3a3zhA6bwIxeUnAwCAxW1oxe6UaU3cyVrx60ma3a13AwhE98",
-    __csr: "grOOML2lEV28Rli_vRkWdbJ4t94LQZdaBWlpe-FeGKKn-AmiKV4_x4w8ki8hJeFvy8y4kGDKq9AG5t5jiFUBG8-FbAyGyotUK8yF9XV8y9VmXVHyV4QHF1x6BK26aG8AxCF4i5pQmGXgkAByby_goVJZmey9pp8-ax2u5oKbBWLyKFfzk4oJ3FWyEfA3q6UrBwXCwv8gyiTrhF6mACiaoxrg01mTE7Klwfd0tUS9yEfo1opQ0_UeE4epQ0OptaIwO7Q3K6U0HF015uEow25o0gz80vi23J64xqC0wC4pUx1i0PE5B06hm0DU5alw4PIE1kVYM15U2ayj09hw3wE21g1BHz807zOfwt60esw0PCw7_w",
-    __hsdp: "l0XhY5V42oaOL1i9L9qcIBZlCvDp42iiFfioj8HUFG8711Dxidwhz9wh6x2GN0B0ho24J2E8o7y68v8tCmaCBwso495z3w9u1NxW2O4Uaoy0VUmxq2m4UyfxF122p4wBwhUtwQyEgAyGw3p83byE1n8swXw8m0lJ0h81A8vwKwYw860sm0N87W0aKwlk0l2y0Jwee0z8",
-    __hblp: "0820QU5C0wU5S0IU4ap0ioswlo4249Ey5rz9Ec842m3mdwBwPQ3m5U9o4KuuewIALhWwCy83DDzEmxyUy4XAzUoQ489Ai2m6obotxuczUG22Eb85C09AwkU983bDG0lO788opw8m0lJ0h8uwXwEx61sw8y58vwxz8f9Udo4e2K0pC0N87W1lw4Sw9O0x8uwSgG18wca6VU-my0yyE5m4E6y4pEym1rxG1iwHw",
-    __sjsp: "l0XhY5V42oaRjMz2UCYBEORTRmp-tAg99aAZ9xcyLyQEws462G0py",
+    __ccg: "GOOD",
+    __rev: "1030194711",
+    __s: "gwwdg5:sji9on:v7yh50",
+    __hsi: "7574980451503834908",
+    __dyn: "7xeUjG1mxu1syUbFp41twWwIxu13wvoKewSAwHwNw9G2S7o2vwa24o0B-q1ew6ywaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo31w9O1lwxwQzXwae4UaEW2G0AEco5G1Wxfxm16wUwtE1wEbUGdG1QwTU9UaQ0Lo6-3u2WE5B08-269wr86C1mgcEed6goK2O4Xxui2qi7E5y4UrwHwGwa6bBK4o1lUG3a13AwhE98",
+    __csr: "g84ahAAROZMz7h2R4R5hlRilnW9tdQH3HsFUzRWJ8CAUyoDz45KKmESi8AhbAChplXl4jFDihqxdGFFVoGqbzFF8SuqECt9xF1a4lp9qBKqqqHGi8-8xbgjypX-9Ui8mucGq8_CKcxl6gy4GAyHyodVeBTyZ5y9aCz8x2HUnyokjV4uq9xCUx2o8o1pE01oPU-awp9Vi0EwDxC0MC0Raa2i7E1fuRBzEG1kg5u5A5o8o0OKu048K0_o3dw3qdw2qEkN61awBg2io-5Z6wLxsw3Ug1wBxYw1085S0g-gE720I4EjgmS0Qo3DYEeS05A42F0XwQAw0sOUrw3EC08Kw0Qgwa2",
+    __hsdp: "n0kynk5I4xk2WkAQyq4GXa2mijjQJzamhPF98mg8Gy3BAPkdflx4y8iO1HaE4gwCqGe8N9k3S1kwMQ8x8xU22wxwEBym6O1W3Wfeh0a61GxC222Kq0jyqm2a2K4Enz8WcyFUa9FFE3kyo4GUy1mBw4-whopw3Vovw4Iw5QwBCwdK1-wXzo5C0vm0Po7m09Qw4mwrA1Hwfm584wwN0",
+    __hblp: "0uV83pGi4E56dwNyWzK3O1IyUC0y8oxep6AWwzzFE4W3KqcwGBgcA22i3qA1YwDxu9zE4248pGq4WwHCxy0L8vzWwLAQi2a6Egxa5XybyEyUGu2yqqq0R8C1nwBzpUqBwkE2-wIwDxS6o0yq0rW7UfEpwno62582twdq2mq0SUdE4u3KdwDz8W5o7-4UaU1do3dwto2tw7gBwi8662q14xS1ggqyod8hws9UO2G4oaVFpuq442-owN0mE37w",
+    __sjsp: "n0jYynkh1918l0KB9d8CDaHIE9p9dfiScFp7eAAxhgyG8eGjdgQZm4i5AIwqwk8C1Gwl8",
     __comet_req: "7",
-    fb_dtsg: "NAfuKtFJJMcpI3RqVUcPXCY44LCQ1jm2wth6tAJkt-UI8Tycm3NWEPQ:17843696212148243:1761052643",
-    jazoest: "26121",
-    lsd: "8l9nBYuE57sFHfJe4pkNf1",
-    __spin_r: "1030040670",
+    fb_dtsg: "NAfsaur_Fm-sUY_8q5GwORL6IyTLtsJnDBjs9pgB37xbS8JPwp6K_5A:17843696212148243:1761052643",
+    jazoest: "26264",
+    lsd: "ubYXSYTgRimNpAR3gGSAzK",
+    __spin_r: "1030194711",
     __spin_b: "trunk",
-    __spin_t: "1763478895",
+    __spin_t: "1763687574",
     __crn: "comet.igweb.PolarisClipsAudioRoute",
   });
 
@@ -75,17 +75,17 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
       "content-type": "application/x-www-form-urlencoded",
       "priority": "u=1, i",
       "sec-ch-prefers-color-scheme": "dark",
-      "sec-ch-ua": '"Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
-      "sec-ch-ua-full-version-list": '"Google Chrome";v="141.0.7390.123", "Not?A_Brand";v="8.0.0.0", "Chromium";v="141.0.7390.123"',
+      "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+      "sec-ch-ua-full-version-list": '"Chromium";v="142.0.7444.163", "Google Chrome";v="142.0.7444.163", "Not_A Brand";v="99.0.0.0"',
       "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-model": "",
-      "sec-ch-ua-platform": "\"Windows\"",
-      "sec-ch-ua-platform-version": "\"15.0.0\"",
+      "sec-ch-ua-model": '""',
+      "sec-ch-ua-platform": '"Windows"',
+      "sec-ch-ua-platform-version": '"15.0.0"',
       "sec-fetch-dest": "empty",
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-asbd-id": "359341",
-      "x-fb-lsd": "8l9nBYuE57sFHfJe4pkNf1",
+      "x-fb-lsd": "ubYXSYTgRimNpAR3gGSAzK",
       "x-ig-d": "www",
       "cookie": COOKIE,
       "Referer": "https://www.instagram.com/reels/audio/1031472805651370?igsh=MnkwODUwZ25mNmtp",
@@ -198,21 +198,18 @@ Deno.serve(async (req: Request) => {
     }
 
     for (const reel of igData.reels) {
-      // 1. Check if record exists
       const { data: existing, error: selectError } = await supabase
         .from("audio_scrape_data")
-        .select("id") // just need primary key
+        .select("id")
         .eq("session_id", session.id)
         .eq("post_url", reel.post_url)
         .maybeSingle();
     
       if (selectError) {
-        //console.error("Select error:", selectError);
         continue;
       }
     
       if (!existing) {
-        // 2. If not exists → INSERT
         const { error: insertError } = await supabase
           .from("audio_scrape_data")
           .insert({
@@ -225,10 +222,7 @@ Deno.serve(async (req: Request) => {
             likes: reel.likes,
             comments: reel.comments,
           });
-    
-        //if (insertError) console.error("Insert error:", insertError);
       } else {
-        // 3. If exists → UPDATE
         const { error: updateError } = await supabase
           .from("audio_scrape_data")
           .update({
@@ -240,11 +234,8 @@ Deno.serve(async (req: Request) => {
             comments: reel.comments,
           })
           .eq("id", existing.id);
-    
-        //if (updateError) console.error("Update error:", updateError);
       }
     }
-
 
     const newScrapedCount = session.scraped_posts + igData.reels.length;
     const shouldComplete = !igData.hasMore;
