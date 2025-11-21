@@ -7,10 +7,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* HOME → same as /audio */}
-        <Route path="/" element={<ScrapeReels />} />
+        <Route path="/" element={<AudioView />} />
 
         {/* PUBLIC AUDIO PAGE */}
-        <Route path="/audio/audioId" element={<ScrapeReels />} />
+        <Route path="/audio/:audioId" element={<AudioView />} />
 
         {/* SCRAPER UI PAGE */}
         <Route path="/scrape/reels" element={<ScrapeReels />} />
