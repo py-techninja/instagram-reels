@@ -5,7 +5,7 @@ import ReelsTable from './components/ReelsTable';
 import MetadataDisplay from './components/MetadataDisplay';
 import { Reel, Metadata, FetchReelsResponse } from './types';
 
-export default function App() {
+function App() {
   const [input, setInput] = useState('');
   const [audioId, setAudioId] = useState('');
   const [reels, setReels] = useState<Reel[]>([]);
