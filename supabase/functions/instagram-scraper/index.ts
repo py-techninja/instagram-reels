@@ -188,7 +188,7 @@ Deno.serve(async (req: Request) => {
       newSession = true;
     }
 
-    const igData = await fetchInstagramData(audioId, session?.max_id || "");
+    const igData = await fetchInstagramData(audioId, session.max_id || "");
 
     if (!session.total_posts && igData.totalClips > 0) {
       await supabase
@@ -260,7 +260,7 @@ Deno.serve(async (req: Request) => {
       totalViews: allScrapedData?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
       totalLikes: allScrapedData?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
       totalComments: allScrapedData?.reduce((sum, r) => sum + (r.comments || 0), 0) || 0,
-      totalPosts: session?.total_posts,
+      totalPosts: session.total_posts,
       scrapedPosts: newScrapedCount,
       percentageScraped: session.total_posts > 0 ? Math.round((newScrapedCount / session.total_posts) * 100) : 0,
     };
