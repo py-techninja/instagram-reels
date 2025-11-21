@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrapeReels from "./component/ScrapeReels";
-import AudioView from "./component/AudioView";
+import ScrapeReels from "../component/ScrapeReels";
+import AudioView from "../component/AudioView";
 
 function App() {
   return (
