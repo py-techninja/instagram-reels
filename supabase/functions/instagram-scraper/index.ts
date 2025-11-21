@@ -97,6 +97,7 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   const cleaned = rawText.replace(/^for\s*\(;;\);\s*/, "");
   const data = JSON.parse(cleaned);
   const items = data.payload.items;
+  
   const pagingInfo = data.payload.paging_info;
   
   const mediaCount = data.payload.media_count?.clips_count || 0;
@@ -187,7 +188,7 @@ Deno.serve(async (req: Request) => {
       newSession = true;
     }
 
-    const igData = await fetchInstagramData(audioId, session.max_id || "");
+    const igData = await fetchInstagramData(audioId, session?.max_id || "");
 
     if (!session.total_posts && igData.totalClips > 0) {
       await supabase
