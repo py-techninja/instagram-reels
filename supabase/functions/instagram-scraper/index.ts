@@ -1,5 +1,8 @@
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { createClient } from "npm:@supabase/supabase-js@2.57.4";
+// Required for Edge Functions (type definitions)
+import "jsr:@supabase/functions-js/edge-runtime";
+
+// Supabase client for Edge (Deno supported)
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.4";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
