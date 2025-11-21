@@ -6,8 +6,8 @@ import { createClient } from "@supabase/supabase-js";
   
 async function getAudioData(audioId: string) {
   const supabase = createClient(
-    Deno.env.get("SUPABASE_URL") || "",
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
+    process.env.get("SUPABASE_URL") || "",
+    process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
   );
   
   const { data: session } = await supabase
