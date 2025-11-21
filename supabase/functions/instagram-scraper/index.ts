@@ -264,7 +264,7 @@ Deno.serve(async (req: Request) => {
       totalComments: allScrapedData?.reduce((sum, r) => sum + (r.comments || 0), 0) || 0,
       totalPosts: session.total_posts,
       scrapedPosts: allScrapedData.length,
-      percentageScraped: session.total_posts > 0 ? Math.round((newScrapedCount / session.total_posts) * 100) : 0,
+      percentageScraped: session.total_posts > 0 ? Math.round((allScrapedData.length / session.total_posts) * 100) : 0,
     };
 
     return new Response(
