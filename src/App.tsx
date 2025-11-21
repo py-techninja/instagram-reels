@@ -208,7 +208,8 @@ function App() {
                 </>
               )}
               {showRestartDialog && (
-                <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-transparent backdrop-blur-md flex items-center justify-center z-50">
+
 
                   <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 w-[350px] shadow-lg">
                     <h2 className="text-lg font-semibold mb-4">
