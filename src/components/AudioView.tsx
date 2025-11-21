@@ -24,7 +24,7 @@ async function getAudioData(audioId: string) {
     .select("*")
     .eq("audio_id", audioId)
     //.eq("session_id", session.id)
-    .order("views", { descending: true });
+    .order("views", { ascending: true });
 
   const metadata = {
       totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
