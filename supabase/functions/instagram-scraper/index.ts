@@ -99,6 +99,7 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
 
   const items = data.payload.items;
   const pagingInfo = data.payload.paging_info;
+  console.log(pageingInfo)
   const mediaCount = data.payload.media_count?.clips_count || 0;
 
   const reels: Reel[] = items.map((item: any) => {
