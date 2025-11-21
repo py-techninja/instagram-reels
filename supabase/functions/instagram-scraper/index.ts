@@ -252,7 +252,7 @@ Deno.serve(async (req: Request) => {
       .from("audio_scrape_sessions")
       .update({
         max_id: igData.maxId,
-        scraped_posts: allScrapedData.length,sssssssssssss
+        scraped_posts: allScrapedData.length,
         status: shouldComplete ? "completed" : "active",
         last_updated: new Date().toISOString(),
       })
@@ -263,7 +263,7 @@ Deno.serve(async (req: Request) => {
       totalLikes: allScrapedData?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
       totalComments: allScrapedData?.reduce((sum, r) => sum + (r.comments || 0), 0) || 0,
       totalPosts: session.total_posts,
-      scrapedPosts: newScrapedCount,
+      scrapedPosts: allScrapedData.length,
       percentageScraped: session.total_posts > 0 ? Math.round((newScrapedCount / session.total_posts) * 100) : 0,
     };
 
