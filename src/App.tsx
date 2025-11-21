@@ -131,6 +131,7 @@ function App() {
 
   const handleRestart = () => {
     setShowRestartDialog(true);
+    handleStop()
   };
 
   const confirmRestart = async () => {
@@ -142,6 +143,7 @@ function App() {
   
   const cancelRestart = () => {
     setShowRestartDialog(false);
+    handleStart()
   };
 
 
