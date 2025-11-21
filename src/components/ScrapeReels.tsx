@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Square, Loader2 } from 'lucide-react';
 import { fetchReels } from '../services/instagram';
-import ReelsTable from './components/ReelsTable';
-import MetadataDisplay from './components/MetadataDisplay';
+import ReelsTable from './ReelsTable';
+import MetadataDisplay from './MetadataDisplay';
 import { Reel, Metadata, FetchReelsResponse } from './types';
 
 function App() {
