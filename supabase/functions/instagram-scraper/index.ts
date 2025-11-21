@@ -243,6 +243,11 @@ Deno.serve(async (req: Request) => {
     const newScrapedCount = session.scraped_posts + igData.reels.length;
     const shouldComplete = !igData.hasMore;
 
+    const { data: allScrapedData } = await supabase
+      .from("audio_scrape_data")
+      .select("*")
+      .eq("session_id", session.id);
+
     await supabase
       .from("audio_scrape_sessions")
       .update({
@@ -252,12 +257,7 @@ Deno.serve(async (req: Request) => {
         last_updated: new Date().toISOString(),
       })
       .eq("id", session.id);
-
-    const { data: allScrapedData } = await supabase
-      .from("audio_scrape_data")
-      .select("*")
-      .eq("session_id", session.id);
-
+    
     const metadata = {
       totalViews: allScrapedData?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
       totalLikes: allScrapedData?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
