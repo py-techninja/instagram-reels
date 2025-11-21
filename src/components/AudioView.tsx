@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
 
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+//import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2.57.4";
 
 const supabase = createClient(
