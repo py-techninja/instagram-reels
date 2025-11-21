@@ -5,7 +5,7 @@ import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
 
 import { createClient } from "@supabase/supabase-js";
- 
+  
 
 const supabase = createClient(
   process.env.get("SUPABASE_URL") || "",
