@@ -169,6 +169,11 @@ Deno.serve(async (req: Request) => {
     } 
 
     if (!session || restart) {
+      const { error } = await supabase
+        .from("audio_scrape_sessions")
+        .delete()
+        .eq("audio_id", audioId);
+        
       const token = `${audioId}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       const { data: created } = await supabase
         .from("audio_scrape_sessions")
