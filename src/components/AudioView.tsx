@@ -6,7 +6,7 @@ import { createClient } from "@supabase/supabase-js";
   
 
 
-export async function getAudioData(audioId: string) {
+async function getAudioData(audioId: string) {
   const supabase = createClient(
     process.env.get("SUPABASE_URL") || "",
     process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
