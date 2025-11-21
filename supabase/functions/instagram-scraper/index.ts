@@ -150,7 +150,7 @@ export async function getAudioData(audioId: string) {
     .from("audio_scrape_data")
     .select("*")
     .eq("session_id", session.id)
-    .order("views", { ascending: true });
+    .order("views", { descending: true });
 
   return {
     metadata: session,
