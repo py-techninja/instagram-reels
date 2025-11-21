@@ -252,7 +252,7 @@ Deno.serve(async (req: Request) => {
       .from("audio_scrape_sessions")
       .update({
         max_id: igData.maxId,
-        scraped_posts: newScrapedCount,
+        scraped_posts: allScrapedData.length,
         status: shouldComplete ? "completed" : "active",
         last_updated: new Date().toISOString(),
       })
