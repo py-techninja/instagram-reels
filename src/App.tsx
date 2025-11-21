@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* HOME → same as /audio */}
-        <Route path="/" element={<AudioView />} />
+        <Route path="/" element={<ScrapeReels />} />
 
         {/* PUBLIC AUDIO PAGE */}
         <Route path="/audio/:audioId" element={<AudioView />} />
