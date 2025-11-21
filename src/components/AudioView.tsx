@@ -4,8 +4,6 @@ import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
 import { createClient } from "@supabase/supabase-js";
   
-
-
 async function getAudioData(audioId: string) {
   const supabase = createClient(
     process.env.get("SUPABASE_URL") || "",
