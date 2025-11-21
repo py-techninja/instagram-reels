@@ -129,10 +129,17 @@ function App() {
   };
 
   const handleRestart = async () => {
+    const confirmRestart = window.confirm(
+      "Are you sure you want to restart this scraping?"
+    );
+  
+    if (!confirmRestart) return; // user cancelled
+  
     handleStop();
     await new Promise(resolve => setTimeout(resolve, 300));
     startScraping(audioId, undefined, true);
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
