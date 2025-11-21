@@ -4,13 +4,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
 
-//import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-//import { createClient } from "npm:@supabase/supabase-js@2.57.4";
+import { createClient } from "@supabase/supabase-js";
 
-/*const supabase = createClient(
-  Deno.env.get("SUPABASE_URL") || "",
-  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
-);*/
+
+const supabase = createClient(
+  process.env.get("SUPABASE_URL") || "",
+  process.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
+);
 
 export async function getAudioData(audioId: string) {
   const { data: session } = await supabase
