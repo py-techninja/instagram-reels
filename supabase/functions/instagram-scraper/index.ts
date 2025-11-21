@@ -162,18 +162,12 @@ Deno.serve(async (req: Request) => {
       const { data: existingSession } = await supabase
         .from("audio_scrape_sessions")
         .select("*")
-        .eq("session_token", sessionId)
+        .eq("audio_id", audioId) //.eq("session_token", sessionId)
         .maybeSingle();
 
       if (existingSession) {
         session = existingSession;
-      } else {
-        const { data: existingSession } = await supabase
-          .from("audio_scrape_sessions")
-          .select("*")
-          .eq("audio_id", audioId)
-          .maybeSingle();
-      }
+      } 
     }
 
     if (!session) {
