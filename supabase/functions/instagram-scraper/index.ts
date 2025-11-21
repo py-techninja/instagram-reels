@@ -153,6 +153,14 @@ export async function getAudioData(audioId: string) {
     //.eq("session_id", session.id)
     .order("views", { descending: true });
 
+  const metadata = {
+      totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
+      totalLikes: reels?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
+      totalComments: reels?.reduce((sum, r) => sum + (r.comments || 0), 0) || 0,
+      totalPosts: session.total_posts,
+      scrapedPosts: reels.length,
+      percentageScraped: session.total_posts > 0 ? Math.round((reels.length / session.total_posts) * 100) : 0,
+  }
   return {
     metadata: session,
     reels: reels || [],
