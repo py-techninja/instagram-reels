@@ -145,6 +145,26 @@ Deno.serve(async (req: Request) => {
     });
   }
 
+  const url = new URL(req.url);
+  if (req.method === "GET" && url.pathname === "/sessions") {
+    const { data, error } = await supabase
+      .from("audio_scrape_sessions")
+      .select("*")
+      .order("last_updated", { ascending: false });
+
+    if (error) {
+      return new Response(
+        JSON.stringify({ error: "Failed to fetch active sessions", details: error }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    return new Response(JSON.stringify({ sessions: data }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const { audioId, sessionId, restart } = (await req.json()) as RequestPayload;
 
