@@ -7,7 +7,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
-const COOKIE = "ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; csrftoken=wtadSWmqz7dpHSG6xj0ahQY7H8YvaOMM; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ds_user_id=58402963693; ps_l=1; ps_n=1; dpr=1.25; wd=767x695; sessionid=58402963693%3AAiYAdP80kSoqaB%3A21%3AAYjpw0xQKPpFDc6vG-TtMNKpuzXK2TUH2PmatwfhaA";
+const COOKIE = 'ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; csrftoken=wtadSWmqz7dpHSG6xj0ahQY7H8YvaOMM; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ds_user_id=58402963693; ps_l=1; ps_n=1; dpr=1.25; wd=982x695; sessionid=58402963693%3AW854N5lOAlJsTk%3A1%3AAYjBt5y0gQpPe6gEOfdgHrx4uA3CmXAbl5oLHkCxkQ; rur=\"LLA\\05458402963693\\0541795526525:01fec05cc49f1a8b0b5a2d296fedc8683545e3fb66201fece4bd3f7ae9c526615386b959\"';
 
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL") || "",
@@ -39,59 +39,58 @@ interface ScrapedData {
 
 async function fetchInstagramData(audioId: string, maxId: string): Promise<ScrapedData> {
   const formData = new URLSearchParams({
-    audio_cluster_id: audioId,
-    max_id: maxId,
-    original_sound_audio_asset_id: audioId,
-    __d: "www",
-    __user: "0",
-    __a: "1",
-    __req: "t",
-    __hs: "20413.HYP:instagram_web_pkg.2.1...0",
-    dpr: "1",
-    __ccg: "GOOD",
-    __rev: "1030194711",
-    __s: "gwwdg5:sji9on:v7yh50",
-    __hsi: "7574980451503834908",
-    __dyn: "7xeUjG1mxu1syUbFp41twWwIxu13wvoKewSAwHwNw9G2S7o2vwa24o0B-q1ew6ywaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo31w9O1lwxwQzXwae4UaEW2G0AEco5G1Wxfxm16wUwtE1wEbUGdG1QwTU9UaQ0Lo6-3u2WE5B08-269wr86C1mgcEed6goK2O4Xxui2qi7E5y4UrwHwGwa6bBK4o1lUG3a13AwhE98",
-    __csr: "g84ahAAROZMz7h2R4R5hlRilnW9tdQH3HsFUzRWJ8CAUyoDz45KKmESi8AhbAChplXl4jFDihqxdGFFVoGqbzFF8SuqECt9xF1a4lp9qBKqqqHGi8-8xbgjypX-9Ui8mucGq8_CKcxl6gy4GAyHyodVeBTyZ5y9aCz8x2HUnyokjV4uq9xCUx2o8o1pE01oPU-awp9Vi0EwDxC0MC0Raa2i7E1fuRBzEG1kg5u5A5o8o0OKu048K0_o3dw3qdw2qEkN61awBg2io-5Z6wLxsw3Ug1wBxYw1085S0g-gE720I4EjgmS0Qo3DYEeS05A42F0XwQAw0sOUrw3EC08Kw0Qgwa2",
-    __hsdp: "n0kynk5I4xk2WkAQyq4GXa2mijjQJzamhPF98mg8Gy3BAPkdflx4y8iO1HaE4gwCqGe8N9k3S1kwMQ8x8xU22wxwEBym6O1W3Wfeh0a61GxC222Kq0jyqm2a2K4Enz8WcyFUa9FFE3kyo4GUy1mBw4-whopw3Vovw4Iw5QwBCwdK1-wXzo5C0vm0Po7m09Qw4mwrA1Hwfm584wwN0",
-    __hblp: "0uV83pGi4E56dwNyWzK3O1IyUC0y8oxep6AWwzzFE4W3KqcwGBgcA22i3qA1YwDxu9zE4248pGq4WwHCxy0L8vzWwLAQi2a6Egxa5XybyEyUGu2yqqq0R8C1nwBzpUqBwkE2-wIwDxS6o0yq0rW7UfEpwno62582twdq2mq0SUdE4u3KdwDz8W5o7-4UaU1do3dwto2tw7gBwi8662q14xS1ggqyod8hws9UO2G4oaVFpuq442-owN0mE37w",
-    __sjsp: "n0jYynkh1918l0KB9d8CDaHIE9p9dfiScFp7eAAxhgyG8eGjdgQZm4i5AIwqwk8C1Gwl8",
-    __comet_req: "7",
-    fb_dtsg: "NAfsaur_Fm-sUY_8q5GwORL6IyTLtsJnDBjs9pgB37xbS8JPwp6K_5A:17843696212148243:1761052643",
-    jazoest: "26264",
-    lsd: "ubYXSYTgRimNpAR3gGSAzK",
-    __spin_r: "1030194711",
-    __spin_b: "trunk",
-    __spin_t: "1763687574",
-    __crn: "comet.igweb.PolarisClipsAudioRoute",
-  });
+  audio_cluster_id: audioId,
+  original_sound_audio_asset_id: audioId,
+  max_id: maxId ?? "",
+  __d: "www",
+  __user: "0",
+  __a: "1",
+  __req: "s",
+  __hs: "20413.HYP:instagram_web_pkg.2.1...0",
+  dpr: "1",
+  __ccg: "MODERATE",
+  __rev: "1030297849",
+  __s: "jkifl1:p73g6b:l3d0j3",
+  __hsi: "7576281594781178042",
+  __dyn: "7xeUjG1mxu1syUbFp41twWwIxu13wvoKewSAwHwNw9G2S7o2vwa24o0B-q1ew6ywaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo31w9O1lwxwQzXwae4UaEW2G0AEco5G1Wxfxm16wUwtE1wEbUGdG1QwTU9UaQ0Lo6-3u2WE5B08-269wr86C1mgcEed6hEhK2O4Xxui2qi7E5y4UrwHwGwa6bBK4o1lUG3a13AwhE98",
+  __csr: "gGwbkl4RPhrkAnFYjbkACzbf8zc_dtjaFl8GIJrQGBV6V8CECiHihVFnF9by9oZkKEGpGaGZ4yeiQh3J7gWhoGqmEqpoSlbyovXK8zF8CGVerGmKnBKryvyA-cKa8cyppuiWUCFFkXHZ2WwQgyaBK2DBzoN5BgS9Cy8Cu4ppEO4ESh2-fDx2dBwGGEN164998hxvw05AUxiaK6E4V0DDCw7uA9wzCw5jL9x2RJ09l0n8C07rqwcW0_E0Sow0CS52122B3Esgy8w8BxGco4uc80-k0nKh0By8x04iwio3nqxd0920GYg0hO0CEaYEfoy8w1h60DQ2FwMxG01P-Bw3w8b8iw2b80dZoG",
+  __hsdp: "gfG182EcMzL2QdCHANh3iQAUBa2sJoKXYjFcpfFndMGpNx8i8bJCG2Nyz0gFPyt8gA3i1uyEfO13gaEsx5o4u12gylDqwg8S0R8s4w46wgUK2e22aw_yU2qwNxaq2664u365EG4898F0so5B7xW0rbwkE0Ge1gzU0xp05Dw9Kawv8W1kw22o3owr80D60gW0z41JwaO1rokK1pg",
+  fb_dtsg: "NAfufSMY3VoYkYZkYisj5yFhmXzjvVM3MBCkgNyiwYtuEFq-h2kILGQ:17864863018060157:1763990499",
+  jazoest: "26527",
+  lsd: "Iarr4VRK-cx4Wex3XHyt5L",
+  __spin_r: "1030297849",
+  __spin_b: "trunk",
+  __spin_t: "1763990520",
+  __crn: "comet.igweb.PolarisClipsAudioRoute",
+});
 
-  const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
-    method: "POST",
-    headers: {
-      "accept": "*/*",
-      "accept-language": "en-US,en;q=0.9",
-      "content-type": "application/x-www-form-urlencoded",
-      "priority": "u=1, i",
-      "sec-ch-prefers-color-scheme": "dark",
-      "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
-      "sec-ch-ua-full-version-list": '"Chromium";v="142.0.7444.163", "Google Chrome";v="142.0.7444.163", "Not_A Brand";v="99.0.0.0"',
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-model": '""',
-      "sec-ch-ua-platform": '"Windows"',
-      "sec-ch-ua-platform-version": '"15.0.0"',
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-origin",
-      "x-asbd-id": "359341",
-      "x-fb-lsd": "ubYXSYTgRimNpAR3gGSAzK",
-      "x-ig-d": "www",
-      "cookie": COOKIE,
-      "Referer": "https://www.instagram.com/reels/audio/1031472805651370?igsh=MnkwODUwZ25mNmtp",
-    },
-    body: formData.toString(),
-  });
+const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
+  method: "POST",
+  headers: {
+    accept: "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "content-type": "application/x-www-form-urlencoded",
+    "priority": "u=1, i",
+    "sec-ch-prefers-color-scheme": "dark",
+    "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+    "sec-ch-ua-full-version-list":
+      '"Chromium";v="142.0.7444.176", "Google Chrome";v="142.0.7444.176", "Not_A Brand";v="99.0.0.0"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-model": '""',
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-ch-ua-platform-version": '"15.0.0"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-asbd-id": "359341",
+    "x-fb-lsd": "Iarr4VRK-cx4Wex3XHyt5L",
+    "x-ig-d": "www",
+    cookie: COOKIE,
+    Referer: `https://www.instagram.com/reels/audio/${audioId}`,
+  },
+  body: formData.toString(),
+});
+
 
   const rawText = await response.text();
   const cleaned = rawText.replace(/^for\s*\(;;\);\s*/, "");
