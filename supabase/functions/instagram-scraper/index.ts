@@ -146,7 +146,7 @@ Deno.serve(async (req: Request) => {
   }
 
   const url = new URL(req.url);
-  if (req.method === "GET" && url.pathname === "/sessions") {
+  if (req.method === "GET" && url.pathname.endsWith("/sessions")) {
     const { data, error } = await supabase
       .from("audio_scrape_sessions")
       .select("*")
