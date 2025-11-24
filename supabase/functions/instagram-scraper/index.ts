@@ -149,7 +149,7 @@ Deno.serve(async (req: Request) => {
     const { data, error } = await supabase
       .from("audio_scrape_sessions")
       .select("*")
-      .order("last_updated", { ascending: false });
+      .order("last_updated", { ascending: true });
 
     if (error) {
       return new Response(
