@@ -51,22 +51,22 @@ function App() {
       setError('Please enter a valid Audio ID or URL');
       return;
     }
-
+  
     setScraping(true);
     setLoading(true);
     scrapingRef.current = true;
     pausedRef.current = false;
     setPaused(false);
     setError('');
-
+  
     if (!reels.length) {
       setReels([]);
       setMetadata(null);
     }
-
+  
     setAudioId(extractedId);
     updateURL(extractedId);
-
+  
     const performScrape = async (sid?: string) => {
       try {
         const data = await fetchReels(extractedId, sid, restart);
@@ -74,17 +74,17 @@ function App() {
         setMetadata(data.metadata);
         setSessionId(data.sessionId);
         setHasMore(data.hasMore);
-
+  
         if (scrapingRef.current && data.hasMore && !pausedRef.current) {
           setLoading(false);
           await new Promise(resolve => setTimeout(resolve, interval * 1000));
-
+  
           if (scrapingRef.current && !pausedRef.current) {
             await performScrape(data.sessionId);
           }
         } else {
           setLoading(false);
-          if (data.hasMore === false) {
+          if (!data.hasMore) {
             setScraping(false);
             scrapingRef.current = false;
           }
@@ -97,9 +97,13 @@ function App() {
         scrapingRef.current = false;
       }
     };
-
+  
+    // 🔥 Perform the first scrape
     await performScrape(sessionId_);
-  };
+  
+    // 🔥 Redirect after FIRST call
+    window.location.href = `/audio/${extractedId}`;
+};
 
   const handleStart = async () => {
     handleStop();
