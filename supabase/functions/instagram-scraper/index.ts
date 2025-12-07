@@ -105,6 +105,16 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
   
   const mediaCount = data.payload.media_count?.clips_count || 0;
 
+  const mediaMetadata = data.payload.metadata?.music_info.music_asset_info || {};
+
+  const coverImage = mediaMetadata.cover_artwork_uri;
+  const igUsername = mediaMetadata.ig_username;
+  const artistName = mediaMetadata.display_artist;
+  const soundDuration = mediaMetadata.duration_in_ms;
+  const soundUrl = mediaMetadata.progressive_download_url;
+  const soundTitle = mediaMetadata.title;
+  const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri;
+
   const reels: Reel[] = items.map((item: any) => {
     const media = item.media;
     const user = media.user;
