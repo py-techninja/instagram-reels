@@ -7,7 +7,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
-const COOKIE = 'ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; csrftoken=wtadSWmqz7dpHSG6xj0ahQY7H8YvaOMM; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ds_user_id=58402963693; ps_l=1; ps_n=1; dpr=1.25; wd=982x695; sessionid=58402963693%3AW854N5lOAlJsTk%3A1%3AAYjBt5y0gQpPe6gEOfdgHrx4uA3CmXAbl5oLHkCxkQ; rur=\"LLA\\05458402963693\\0541795526525:01fec05cc49f1a8b0b5a2d296fedc8683545e3fb66201fece4bd3f7ae9c526615386b959\"';
+const COOKIE = 'ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; csrftoken=wtadSWmqz7dpHSG6xj0ahQY7H8YvaOMM; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ds_user_id=58402963693; ps_l=1; ps_n=1; dpr=1.25; sessionid=58402963693%3AW854N5lOAlJsTk%3A1%3AAYgFNVEZLRj85BcF5PkpZX7_e7PRpCEQql4Hz7MlYQ; rur="LLA\05458402963693\0541796714759:01fe12ae70102697dda4255381d01c6290591abfda435cc53c4c18e079d424e1ab54da7d"; wd=982x695
+';
 
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL") || "",
