@@ -72,6 +72,9 @@ function App() {
         const data = await fetchReels(extractedId, sid, restart);
         setReels(prev => [...prev, ...data.reels]);
         setMetadata(data.metadata);
+        if (data.audioMetadata) {
+          setAudioMetadata(data.audioMetadata);
+        }
         setSessionId(data.sessionId);
         setHasMore(data.hasMore);
   
@@ -292,6 +295,8 @@ function App() {
 
         {metadata && (
           <>
+            {audioMetadata && <AudioMetadataDisplay metadata={audioMetadata} />}
+
             <MetadataDisplay metadata={metadata} />
 
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">

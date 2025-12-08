@@ -17,10 +17,21 @@ export interface Metadata {
   percentageScraped: number;
 }
 
+export interface AudioMetadata {
+  coverImage?: string;
+  igUsername?: string;
+  artistName?: string;
+  soundDuration?: number;
+  soundUrl?: string;
+  soundTitle?: string;
+  spotifyUrl?: string;
+}
+
 export interface FetchReelsResponse {
   sessionId: string;
   hasMore: boolean;
   reels: Reel[];
   metadata: Metadata;
+  audioMetadata?: AudioMetadata;
   status: 'active' | 'completed';
 }
