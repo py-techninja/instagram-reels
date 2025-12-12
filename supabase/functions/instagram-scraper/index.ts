@@ -289,18 +289,18 @@ Deno.serve(async (req: Request) => {
       const audioMetadata = igData.audioMetadata; 
       
       const { error: upsertError } = await supabase
-          .from("audio_metadata")
-          .upsert({
-            audio_id: audioId,
-            cover_image_url: coverImage,
-            ig_username: igUsername,
-            artist_name: artistName,
-            duration_ms: soundDuration,
-            sound_url: soundUrl,
-            sound_title: soundTitle,
-            spotify_url: spotifyUrl, 
-            last_updated: new Date().toISOString()
-          });
+      .from("audio_metadata")
+      .upsert({
+        audio_id: audioId,
+        cover_image_url: coverImage,
+        ig_username: igUsername,
+        artist_name: artistName,
+        duration_ms: soundDuration,
+        sound_url: soundUrl,
+        sound_title: soundTitle,
+        spotify_url: spotifyUrl, 
+        last_updated: new Date().toISOString()
+      });
     }
 
     const newScrapedCount = session.scraped_posts + igData.reels.length;
