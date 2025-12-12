@@ -155,7 +155,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
 
   return {
     reels,
-    audioMetadata: mediaMetadata ? audioMetadata : {},
+    audioMetadata: mediaMetadata ? audioMetadata : null,
     maxId: pagingInfo.max_id || "",
     hasMore: pagingInfo.more_available,
     totalClips: mediaCount,
@@ -283,6 +283,21 @@ Deno.serve(async (req: Request) => {
           })
           .eq("id", existing.id);
       }
+    }
+
+    if ( igData.audioMetadata ){
+      const { error: insertError } = await supabase
+          .from("audio_scrape_data")
+          .insert({
+            session_id: session.id,
+            audio_id: audioId,
+            creator: reel.creator,
+            post_url: reel.post_url,
+            media_url: reel.media_url,
+            views: reel.views,
+            likes: reel.likes,
+            comments: reel.comments,
+          });
     }
 
     const newScrapedCount = session.scraped_posts + igData.reels.length;
