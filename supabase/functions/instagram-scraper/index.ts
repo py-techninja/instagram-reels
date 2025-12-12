@@ -124,7 +124,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
     soundUrl,
     soundTitle,
     spotifyUrl
-}
+  };
   
   const reels: Reel[] = items.map((item: any) => {
     const media = item.media;
@@ -286,10 +286,9 @@ Deno.serve(async (req: Request) => {
     }
 
     if ( igData.audioMetadata ){
-      const { error: insertError } = await supabase
+      const { error: upsertError } = await supabase
           .from("audio_scrape_data")
-          .insert({
-            session_id: session.id,
+          .upsert({
             audio_id: audioId,
             creator: reel.creator,
             post_url: reel.post_url,
