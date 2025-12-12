@@ -11,6 +11,7 @@ function App() {
   const [audioId, setAudioId] = useState('');
   const [reels, setReels] = useState<Reel[]>([]);
   const [metadata, setMetadata] = useState<Metadata | null>(null);
+  const [audioMetadata, setAudioMetadata] = useState<AudioMetadata | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(false);
