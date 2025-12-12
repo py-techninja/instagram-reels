@@ -116,6 +116,16 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
   const soundTitle = mediaMetadata.title;
   const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri;
 
+  const audioMetadata = {
+    coverImage,
+    igUsername,
+    artistName,
+    soundDuration,
+    soundUrl,
+    soundTitle,
+    spotifyUrl
+}
+  
   const reels: Reel[] = items.map((item: any) => {
     const media = item.media;
     const user = media.user;
