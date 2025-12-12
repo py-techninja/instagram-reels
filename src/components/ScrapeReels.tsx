@@ -4,7 +4,7 @@ import { fetchReels } from '../services/instagram';
 import ReelsTable from './ReelsTable';
 import MetadataDisplay from './MetadataDisplay';
 import AudioMetadataDisplay from './AudioMetadataDisplay';
-import { Reel, Metadata, FetchReelsResponse } from '../types';
+import { Reel, Metadata, AudioMetadata, FetchReelsResponse } from '../types';
 
 function App() {
   const [input, setInput] = useState('');
