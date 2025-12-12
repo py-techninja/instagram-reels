@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MetadataDisplay from "./MetadataDisplay";
 import ReelsTable from "./ReelsTable";
+import AudioMetadataDisplay from "./AudioMetadataDisplay";
 import { createClient } from "@supabase/supabase-js";
   
 async function getAudioData(audioId: string) {
@@ -26,6 +27,12 @@ async function getAudioData(audioId: string) {
     //.eq("session_id", session.id)
     .order("views", { ascending: false });
 
+  const { data: audioMetadata } = await supabase
+    .from("audio_metadata")
+    .select("*")
+    .eq("audio_id", audioId)
+    .maybeSingle();
+
   const metadata = {
       totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
       totalLikes: reels?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
@@ -35,6 +42,7 @@ async function getAudioData(audioId: string) {
       percentageScraped: session.total_posts > 0 ? Math.round((reels.length / session.total_posts) * 100) : 0,
   }
   return {
+    audioMetadata: audioMetadata,
     metadata: metadata,
     reels: reels || [],
   };
@@ -47,6 +55,7 @@ export default function AudioView() {
 
   const [input, setInput] = useState("");
   const [metadata, setMetadata] = useState(null);
+  const [audioMetadata, setAudioMetadata] = useState(null);
   const [reels, setReels] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -62,10 +71,11 @@ export default function AudioView() {
       setReels([]);
       return;
     }
-
+333
     setError("");
     setMetadata(res.metadata);
     setReels(res.reels);
+    setAudioMetadata(res.audioMetadata)
   };
 
   useEffect(() => {
@@ -105,6 +115,7 @@ export default function AudioView() {
 
         {metadata && (
           <>
+            <AudioMetadataDisplay metadata={audioMetadata} />
             <MetadataDisplay metadata={metadata} />
             <div className="mt-6 bg-white rounded-lg shadow-sm">
               <ReelsTable reels={reels} />
