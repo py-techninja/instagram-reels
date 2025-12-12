@@ -290,12 +290,13 @@ Deno.serve(async (req: Request) => {
           .from("audio_scrape_data")
           .upsert({
             audio_id: audioId,
-            creator: reel.creator,
-            post_url: reel.post_url,
-            media_url: reel.media_url,
-            views: reel.views,
-            likes: reel.likes,
-            comments: reel.comments,
+            cover_image_url: coverImage,
+            ig_username: igUsername,
+            artist_name: artistName,
+            duration_ms: soundDuration,
+            sound_url: soundUrl,
+            sound_title: soundTitle,
+            spotify_url: spotifyUrl
           });
     }
 
