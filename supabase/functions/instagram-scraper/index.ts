@@ -155,6 +155,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
 
   return {
     reels,
+    audioMetadata: mediaMetadata ? audioMetadata : {},
     maxId: pagingInfo.max_id || "",
     hasMore: pagingInfo.more_available,
     totalClips: mediaCount,
