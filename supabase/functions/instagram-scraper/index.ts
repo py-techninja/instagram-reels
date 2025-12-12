@@ -298,6 +298,7 @@ Deno.serve(async (req: Request) => {
         sound_url: soundUrl,
         sound_title: soundTitle,
         spotify_url: spotifyUrl, 
+        id: session.id,
         last_updated: new Date().toISOString()
       });
     }
