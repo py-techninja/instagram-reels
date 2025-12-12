@@ -3,13 +3,15 @@ import { Play, Pause, Square, Loader2 } from 'lucide-react';
 import { fetchReels } from '../services/instagram';
 import ReelsTable from './ReelsTable';
 import MetadataDisplay from './MetadataDisplay';
-import { Reel, Metadata, FetchReelsResponse } from '../types';
+import AudioMetadataDisplay from './AudioMetadataDisplay';
+import { Reel, Metadata, AudioMetadata, FetchReelsResponse } from '../types';
 
 function App() {
   const [input, setInput] = useState('');
   const [audioId, setAudioId] = useState('');
   const [reels, setReels] = useState<Reel[]>([]);
   const [metadata, setMetadata] = useState<Metadata | null>(null);
+  const [audioMetadata, setAudioMetadata] = useState<AudioMetadata | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(false);
