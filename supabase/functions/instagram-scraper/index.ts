@@ -106,7 +106,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
   
   const mediaCount = data.payload.media_count?.clips_count || 0;
 
-  const mediaMetadata = data.payload.metadata?.music_info.music_asset_info || {};
+  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info || {};
 
   const coverImage = mediaMetadata.cover_artwork_uri;
   const igUsername = mediaMetadata.ig_username;
