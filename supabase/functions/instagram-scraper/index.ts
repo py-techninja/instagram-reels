@@ -287,7 +287,7 @@ Deno.serve(async (req: Request) => {
 
     if ( igData.audioMetadata ){
       const { error: upsertError } = await supabase
-          .from("audio_scrape_data")
+          .from("audio_metadata")
           .upsert({
             audio_id: audioId,
             cover_image_url: coverImage,
