@@ -32,7 +32,7 @@ export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayP
               className="w-30 h-30 rounded-lg object-cover shadow-md"
             />
           ) : (
-            <div className="w-30 h-30 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400">
+            <div className="w-25 h-25 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400">
               No cover image
             </div>
           )}
