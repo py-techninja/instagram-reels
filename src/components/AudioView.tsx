@@ -116,7 +116,6 @@ export default function AudioView() {
 
         {metadata && (
           <>
-            {audioMetadata && <AudioMetadataDisplay metadata={audioMetadata} />}
             <MetadataDisplay metadata={metadata} />
             <div className="mt-6 bg-white rounded-lg shadow-sm">
               <ReelsTable reels={reels} />
