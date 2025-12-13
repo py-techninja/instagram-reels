@@ -253,12 +253,30 @@ Deno.serve(async (req: Request) => {
 
     const igData = await fetchInstagramData(audioId, session.max_id || "");
 
-    if (!session.total_posts && igData.totalClips > 0) {
+    if ( igData.totalClips > 0 ) { //!session.total_posts && 
       await supabase
         .from("audio_scrape_sessions")
         .update({ total_posts: igData.totalClips })
         .eq("id", session.id);
       session.total_posts = igData.totalClips;
+    }
+
+    if ( igData.audioMetadata ){
+      const audioMetadata = igData.audioMetadata;    
+      const { error: upsertError } = await supabase
+      .from("audio_metadata")
+      .insert({
+        audio_id: audioId,
+        cover_image_url: audioMetadata.coverImage,
+        ig_username: audioMetadata.igUsername,
+        artist_name: audioMetadata.artistName,
+        duration_ms: audioMetadata.soundDuration,
+        sound_url: audioMetadata.soundUrl,
+        sound_title: audioMetadata.soundTitle,
+        spotify_url: audioMetadata.spotifyUrl, 
+        id: session.id,
+        last_updated: new Date().toISOString()
+      });
     }
 
     for (const reel of igData.reels) {
@@ -299,24 +317,6 @@ Deno.serve(async (req: Request) => {
           })
           .eq("id", existing.id);
       }
-    }
-
-    if ( igData.audioMetadata ){
-      const audioMetadata = igData.audioMetadata;    
-      const { error: upsertError } = await supabase
-      .from("audio_metadata")
-      .insert({
-        audio_id: audioId,
-        cover_image_url: audioMetadata.coverImage,
-        ig_username: audioMetadata.igUsername,
-        artist_name: audioMetadata.artistName,
-        duration_ms: audioMetadata.soundDuration,
-        sound_url: audioMetadata.soundUrl,
-        sound_title: audioMetadata.soundTitle,
-        spotify_url: audioMetadata.spotifyUrl, 
-        id: session.id,
-        last_updated: new Date().toISOString()
-      });
     }
 
     const newScrapedCount = session.scraped_posts + igData.reels.length;
