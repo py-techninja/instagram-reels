@@ -261,9 +261,9 @@ Deno.serve(async (req: Request) => {
       session.total_posts = igData.totalClips;
     }
 
-    if ( restart && igData.audioMetadata?.cover_image_url ){
+    if ( restart && igData.audioMetadata.ig_username ){
       const audioMetadata = igData.audioMetadata;    
-      const { error: upsertError } = await supabase
+      const { error: insertError } = await supabase
       .from("audio_metadata")
       .insert({
         audio_id: audioId,
