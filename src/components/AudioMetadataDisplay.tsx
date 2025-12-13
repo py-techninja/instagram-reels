@@ -25,7 +25,7 @@ export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayP
             <img
               src={metadata.coverImage}
               alt={metadata.soundTitle ?? 'Audio cover'}
-              className="w-32 h-32 rounded-lg object-cover shadow-md"
+              className="w-32 h-45 rounded-lg object-cover shadow-md"
             />
           ) : (
             <div className="w-32 h-32 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
