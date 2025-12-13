@@ -276,6 +276,9 @@ Deno.serve(async (req: Request) => {
         spotify_url: audioMetadata.spotifyUrl, 
         id: session.id,
         last_updated: new Date().toISOString()
+      },
+      {
+        onConflict: "audio_id",
       });
     }
 
