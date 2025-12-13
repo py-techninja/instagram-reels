@@ -263,7 +263,7 @@ Deno.serve(async (req: Request) => {
 
     if ( igData.audioMetadata ){
       const audioMetadata = igData.audioMetadata;    
-      const { error: upsertError } = await supabase
+      const { error: insertError } = await supabase
       .from("audio_metadata")
       .insert({
         audio_id: audioId,
