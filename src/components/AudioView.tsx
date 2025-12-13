@@ -27,11 +27,21 @@ async function getAudioData(audioId: string) {
     //.eq("session_id", session.id)
     .order("views", { ascending: false });
 
-  const { data: audioMetadata } = await supabase
+  const { data: audioDbMetadata } = await supabase
     .from("audio_metadata")
     .select("*")
     .eq("audio_id", audioId)
     .maybeSingle();
+
+  const audioMetadata = {
+        coverImage: audioDbMetadata.cover_image_url,
+        igUsername: audioMetadata.ig_username,
+        artistName: audioMetadata.artist_name,
+        soundDuration: audioMetadata.duration_ms,
+        soundUrl: audioMetadata.sound_url,
+        soundTitle: audioMetadata.sound_title,
+        spotifyUrl: audioMetadata.spotify_url, 
+  };
   
   const metadata = {
       totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
