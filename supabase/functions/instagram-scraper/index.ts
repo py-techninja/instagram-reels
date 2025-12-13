@@ -122,7 +122,7 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   
   const mediaCount = data.payload.media_count?.clips_count || 0;
 
-  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info || data.payload.metadata?original_sound_info || {};
+  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info || data.payload.metadata?.original_sound_info || {};
 
   const coverImage = mediaMetadata.cover_artwork_uri || mediaMetadata.ig_artist.profile_pic_url || "";
   const igUsername = mediaMetadata.ig_username || mediaMetadata.ig_artist.username || "";
