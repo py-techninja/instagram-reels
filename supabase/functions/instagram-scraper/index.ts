@@ -133,13 +133,13 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri;
 
   const audioMetadata = {
-    coverImage,
-    igUsername,
-    artistName,
-    soundDuration,
-    soundUrl,
-    soundTitle,
-    spotifyUrl
+    coverImage: coverImage,
+    igUsername: igUsername,
+    artistName: artistName,
+    soundDuration: soundDuration,
+    soundUrl: soundUrl,
+    soundTitle: soundTitle,
+    spotifyUrl: spotifyUrl
   };
   
   const reels: Reel[] = items.map((item: any) => {
