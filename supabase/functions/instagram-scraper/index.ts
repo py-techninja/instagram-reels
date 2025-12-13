@@ -120,17 +120,17 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
   
   const pagingInfo = data.payload.paging_info;
   
-  const mediaCount = data.payload.media_count?.clips_count || 0;
+  const mediaCount = data.payload.media_count?.clips_count ?? 0;
 
-  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info || data.payload.metadata?.original_sound_info || {};
+  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info ?? data.payload.metadata?.original_sound_info ?? {};
 
-  const coverImage = mediaMetadata.cover_artwork_uri || mediaMetadata.ig_artist?.profile_pic_url || "";
-  const igUsername = mediaMetadata.ig_username || mediaMetadata.ig_artist?.username || "";
-  const artistName = mediaMetadata.display_artist || mediaMetadata.ig_artist?.full_name || "";
-  const soundDuration = mediaMetadata.duration_in_ms || 0;
-  const soundUrl = mediaMetadata.progressive_download_url || "";
-  const soundTitle = mediaMetadata.title || mediaMetadata.original_audio_title || "";
-  const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri || "";
+  const coverImage = mediaMetadata.cover_artwork_uri ?? mediaMetadata.ig_artist?.profile_pic_url ?? "";
+  const igUsername = mediaMetadata.ig_username ?? mediaMetadata.ig_artist?.username ?? "";
+  const artistName = mediaMetadata.display_artist ?? mediaMetadata.ig_artist?.full_name ?? "";
+  const soundDuration = mediaMetadata.duration_in_ms ?? 0;
+  const soundUrl = mediaMetadata.progressive_download_url ?? "";
+  const soundTitle = mediaMetadata.title ?? mediaMetadata.original_audio_title ?? "";
+  const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri ?? "";
 
   const audioMetadata = {
     coverImage: coverImage,
