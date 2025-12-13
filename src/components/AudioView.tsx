@@ -34,13 +34,13 @@ async function getAudioData(audioId: string) {
     .maybeSingle();
 
   const audioMetadata = {
-        coverImage: audioDbMetadata.cover_image_url,
-        igUsername: audioDbMetadata.ig_username,
-        artistName: audioDbMetadata.artist_name,
-        soundDuration: audioDbMetadata.duration_ms,
-        soundUrl: audioDbMetadata.sound_url,
-        soundTitle: audioDbMetadata.sound_title,
-        spotifyUrl: audioDbMetadata.spotify_url, 
+        coverImage: audioDbMetadata?.cover_image_url,
+        igUsername: audioDbMetadata?.ig_username,
+        artistName: audioDbMetadata?.artist_name,
+        soundDuration: audioDbMetadata?.duration_ms,
+        soundUrl: audioDbMetadata?.sound_url,
+        soundTitle: audioDbMetadata?.sound_title,
+        spotifyUrl: audioDbMetadata?.spotify_url, 
   };
   
   const metadata = {
@@ -52,7 +52,7 @@ async function getAudioData(audioId: string) {
       percentageScraped: session.total_posts > 0 ? Math.round((reels.length / session.total_posts) * 100) : 0,
   }
   return {
-    audioMetadata: audioMetadata || {},
+    audioMetadata: audioDbMetadata ? audioMetadata : {},
     metadata: metadata,
     reels: reels || [],
   };
