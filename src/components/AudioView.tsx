@@ -68,6 +68,7 @@ export default function AudioView() {
     if (!res) {
       setError("No data found for this audio ID.");
       setMetadata(null);
+      setAudioMetadata(null);
       setReels([]);
       return;
     }
@@ -75,7 +76,7 @@ export default function AudioView() {
     setError("");
     setMetadata(res.metadata);
     setReels(res.reels);
-    setAudioMetadata(res.audioMetadata)
+    setAudioMetadata(res.audioMetadata);
   };
 
   useEffect(() => {
