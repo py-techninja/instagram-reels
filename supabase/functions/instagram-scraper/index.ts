@@ -307,13 +307,13 @@ Deno.serve(async (req: Request) => {
       .from("audio_metadata")
       .insert({
         audio_id: audioId,
-        cover_image_url: coverImage,
-        ig_username: igUsername,
-        artist_name: artistName,
-        duration_ms: soundDuration,
-        sound_url: soundUrl,
-        sound_title: soundTitle,
-        spotify_url: spotifyUrl, 
+        cover_image_url: audioMetadata.coverImage,
+        ig_username: audioMetadata.igUsername,
+        artist_name: audioMetadata.artistName,
+        duration_ms: audioMetadata.soundDuration,
+        sound_url: audioMetadata.soundUrl,
+        sound_title: audioMetadata.soundTitle,
+        spotify_url: audioMetadata.spotifyUrl, 
         id: session.id,
         last_updated: new Date().toISOString()
       });
