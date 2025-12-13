@@ -20,7 +20,6 @@ const COOKIE =
   'rur="LLA,58402963693,1796714759:01fe12ae70102697dda4255381d01c6290591abfda435cc53c4c18e079d424e1ab54da7d"; ' +
   'wd=982x695';
 
-
 function cors(req: Request) {
   const headers = new Headers();
 
