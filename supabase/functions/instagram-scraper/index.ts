@@ -191,7 +191,7 @@ Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
       status: 200,
-      headers: cors(req),
+      headers: corsHeaders,
     });
   }
 
@@ -205,13 +205,13 @@ Deno.serve(async (req: Request) => {
     if (error) {
       return new Response(
         JSON.stringify({ error: "Failed to fetch active sessions", details: error }),
-        { status: 500, headers: { ...cors(req), "Content-Type": "application/json" } }
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
     return new Response(JSON.stringify({ sessions: data }), {
       status: 200,
-      headers: { ...cors(req), "Content-Type": "application/json" },
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 
@@ -221,7 +221,7 @@ Deno.serve(async (req: Request) => {
     if (!audioId) {
       return new Response(JSON.stringify({ error: "audioId is required" }), {
         status: 400,
-        headers: { ...cors(req), "Content-Type": "application/json" },
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
@@ -366,7 +366,7 @@ Deno.serve(async (req: Request) => {
       }),
       {
         status: 200,
-        headers: { ...cors(req), "Content-Type": "application/json" },
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
   } catch (error) {
@@ -378,7 +378,7 @@ Deno.serve(async (req: Request) => {
       }),
       {
         status: 500,
-        headers: { ...cors(req), "Content-Type": "application/json" },
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
   }
