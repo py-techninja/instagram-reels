@@ -14,7 +14,7 @@ function cors(req: Request) {
 
   headers.set("Access-Control-Allow-Origin", "*");
   headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-
+ 
   const requestHeaders = req.headers.get("Access-Control-Request-Headers");
   if (requestHeaders) {
     headers.set("Access-Control-Allow-Headers", requestHeaders);
