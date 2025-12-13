@@ -368,7 +368,7 @@ Deno.serve(async (req: Request) => {
         details: error instanceof Error ? error.message : "Unknown error",
       }),
       {
-        status: 500,
+        status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
