@@ -52,7 +52,7 @@ async function getAudioData(audioId: string) {
       percentageScraped: session.total_posts > 0 ? Math.round((reels.length / session.total_posts) * 100) : 0,
   }
   return {
-    audioMetadata: audioDbMetadata ? audioMetadata : {},
+    audioMetadata: audioDbMetadata ? audioMetadata : null,
     metadata: metadata,
     reels: reels || [],
   };
