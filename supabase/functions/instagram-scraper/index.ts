@@ -171,7 +171,7 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
 
   return {
     reels,
-    audioMetadata: mediaMetadata ? audioMetadata : {},
+    audioMetadata: audioMetadata,
     maxId: pagingInfo.max_id || "",
     hasMore: pagingInfo.more_available,
     totalClips: mediaCount,
