@@ -19,7 +19,7 @@ export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayP
   return (
     <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
       <h2 className="text-2xl font-bold text-slate-800 mb-6">
-        Audio Metadata
+        
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
