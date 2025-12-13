@@ -8,7 +8,7 @@ const corsHeaders = {
 };
 
 const COOKIE = "ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ps_l=1; ps_n=1; dpr=1.25; csrftoken=xxi90HCa8lUIeuAJCoVsVZXmZcfEiMO1; ds_user_id=58402963693; sessionid=58402963693%3AtSxi9LoWnCwpRu%3A10%3AAYgRxsGTKlmXoXBwwDFW80rDGmhsMsRpvniPyxvEQA; wd=982x695;"
-
+  
 function cors(req: Request) {
   const headers = new Headers();
 
