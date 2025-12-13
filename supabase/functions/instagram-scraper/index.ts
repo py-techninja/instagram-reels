@@ -59,56 +59,62 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
     __d: "www",
     __user: "0",
     __a: "1",
-    __req: "2",
-    __hs: "20430.HCSV2:instagram_web_pkg.2.1...0",
+    __req: "4",
+    __hs: "20435.HCSV2:instagram_web_pkg.2.1...0",
     dpr: "1",
     __ccg: "MODERATE",
-    __rev: "1030747366",
-    __s: "w7qfzh:vd58o7:2v7rdz",
-    __hsi: "7581385849405336921",
-    __dyn: "7xe6E5q5U5ObwKBAg5S1Dxu13wvoKewSAwHwNwcy0Lo2wx609vCwjE1EE2Cw8G11w6zx61vwoEcE7O2l0Fw4Hw9O0M82zxe2GewGw9a361qw8W1uwUw7VwLyES1TwTwFwIwbS1LwTwKG1pg2Xwr86C1mg6LhAq4rwgbxui2K7E5y4UrwHwcObBK4o1oEcE2fwAw",
-    __csr: "g8Z_kn92mPthcnkLRFtV5ZRszAmFRswR6Kh25Jdy8ymazeV5zonFaWGaV5AUCFpGQipah5BiACVu98c-i8Bjx3WUqzkdAKtaaz4E9a-u8GdFoyF8yiVoKcGu4-XFKlCDK5A8DCCxiuiqu69eoB6xy58CmUzAAwxBzo-qt6z4EjzaADzHAKbg20w05r1Bwq81qz01b23i9GSHSewuk0C9CuUnU2Kwe61_xa682SU6O0gS0om067i03eo4Ux5w3OoJG4Q5VQm1FwaIOxd1q5Gdong9Eiwg89CbDzkt0tUlhBysE3mwmUMapxywExy4o1z81oE06TW09oyoK0hu06cUbU0uyw53w",
-    __hsdp: "l0XV2POE2Qks2oNtDexqhCBJykU9Qh1n8CtdO4gkgZy4NDLo4gMaS3jeB43Q3xwiUiF7waasw2cgK4F8KUiogxR0Jieii0O86C1hVFF8hxq0Co46bxS7Ef8mDBCyoS1mU8U6q3C684u6o3-w2W8co1qo3Zg3mw4Axm2G0M99U1L82MwvE0xC0KA1fw4wwkoS361pa0NU",
-    __hblp: "08i0Oo38w4Bw_CCxW7E2dxe1kx2dV8KUvF0BwKyQ7V8a8hw82bgeobUcUtQmqi4ry9Gw9C11DK6-7Eozolxqumq9y987Pwg9rzoK3C684u5J4w921Ew49wno19o5B1-4oa87i0OU3RDg3mwb21wxa5oaEgwQwsFV9U560mG0I87W1zw6LBxi2-1ewCgK13wcq1jAgkx62Gcgb-um16Aa4Uy0GE523C",
-    __sjsp: "kI8QwgJlOtAB2eayK4e2C45pAlJ2Q2NetxpkbglAwDh46k4EcA6FS0lC",
+    __rev: "1031048183",
+    __s: "e07h2u:155o8j:406d39",
+    __hsi: "7583263477445038855",
+    __dyn:
+      "7xeUjG1mxu1syUbFp41twpUnwgU7SbzEdF8aUco2qwJxS0DU2wx609vCwjE1EE2Cw8G11wBz81s8hwGxu786a3a1YwBgao6C0Mo2swlo8od8-U2zxe2GewGw9a361qwuEjUlwhEe87q0oa2-azqwt8d-2u2J0bS1LwTwKG1pg2fwxyo6O1FwlA3a3zhAq4rwIxeUnAwCAxW1oxe6UaU3cyVrx60ma3a18whE984O",
+    __csr:
+      "gR9dsO1R5Y-OMJnbGCJ49OclGJlTEyP8C9mACnh94miRJnWx6qp5ggpFVWGp3Vp8xBWXF3pW-CmLBDBCAXyp9FVECtaSaBhGJ3886XCizbhFEG9AhQbzogxDDAwwGFUtLtqzvyWHzUGiFF-cx7zEkyGGm89VUDg9bxfGqh4jCy994ufGbyay4uA6V8Sm8xSqcwl-7o199U01oikU5W587qdg9U1Fo4258iLo3mgiG26h0HnJ7zE9k0b8g0iyU6K0he04oEgo0HClwxwrEUxawc22i5Q7U96lj02Qo1bVCi5z09O0H92S0Uy0Cw8bOw1kGU760CohNowb00i0o0bOEsw2i60VE0mZw1WO",
+    __hsdp:
+      "l0AA1pE4g9xyW2ckTkheYY9iP4nhHmGEZ5igxi4e4kbGia8SAUF3QzkkEaAdl2ph05x1wwb61eIom6S2xaA7y38fEpwOAxhy45aggwtEcPy47EbUbU6q0gG323amdAxq68twfy26bgrKawDwEUO2OeyUa84y10y82ywaS08Bg0Ny0mGawoUdUrwqE6F0vu0l60Po29w24o1TA1rwqE6y68hxm5-3O",
+    __hblp:
+      "0di1XwmUjzU6O0xU3hwOK12wBBhUa88-fDz84u2Wqag-3-9yUpwLzU8o-2ii0ME43wMDxK9ABzrgmzUy7o2wwkF88ppk6XyFUvxCeUO2OeyUrz8aEtBwWy82ywaS68620qJ09O3S0xE1JE2fwBwoVU4yazU5e9xG4ErzE5DwqA1lwk81aE3dw8C3W0sC8w821WAwmU5W290mU4q27y8swDxGq44aBjx64XUf85m0EU",
+    __sjsp:
+      "l0AA1pE4g9xyW2ckTkheYY8EJmht6JqGzQl9258hi153F8GbgV1G14K1Lgo82Nwkxxoroa41QxC",
     __comet_req: "7",
-    fb_dtsg: "NAfsFwJ96eZh3x7yoSyiVQ6qbqIaQO0xLJHfw642mOZV02zVMnRd-HQ:17864863018060157:1763990499",
-    jazoest: "26215",
-    lsd: "QdJ42l9kP0QoY1M7zGlEb6",
-    __spin_r: "1030747366",
+    fb_dtsg:
+      "NAfvyBkocIQUkMwarN82iqf3i2sU6N5RPGsBag-DIx9XpzfE1YRjIsw:17865068956001195:1765477512",
+    jazoest: "26352",
+    lsd: "lG1jlx6c2IZJWIZin5Rv7-",
+    __spin_r: "1031048183",
     __spin_b: "trunk",
-    __spin_t: "1765178947",
-    __crn: "comet.igweb.PolarisClipsAudioRoute"
+    __spin_t: "1765616116",
+    __crn: "comet.igweb.PolarisClipsAudioRoute",
   });
 
 
 
-const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
-  method: "POST",
-  headers: {
-    accept: "*/*",
-    "accept-language": "en-US,en;q=0.9",
-    "content-type": "application/x-www-form-urlencoded",
-    "priority": "u=1, i",
-    "sec-ch-prefers-color-scheme": "dark",
-    "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
-    "sec-ch-ua-full-version-list":
-      '"Chromium";v="142.0.7444.176", "Google Chrome";v="142.0.7444.176", "Not_A Brand";v="99.0.0.0"',
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-model": '""',
-    "sec-ch-ua-platform": '"Windows"',
-    "sec-ch-ua-platform-version": '"15.0.0"',
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-asbd-id": "359341",
-    "x-fb-lsd": "Iarr4VRK-cx4Wex3XHyt5L",
-    "x-ig-d": "www",
-    cookie: COOKIE,
-    Referer: `https://www.instagram.com/reels/audio/${audioId}`,
-  },
-  body: formData.toString(),
-});
+  const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
+    method: "POST",
+    headers: {
+      accept: "*/*",
+      "accept-language": "en-US,en;q=0.9",
+      "content-type": "application/x-www-form-urlencoded",
+      "priority": "u=1, i",
+      "sec-ch-prefers-color-scheme": "dark",
+      "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+      "sec-ch-ua-full-version-list":
+        '"Chromium";v="142.0.7444.176", "Google Chrome";v="142.0.7444.176", "Not_A Brand";v="99.0.0.0"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-model": '""',
+      "sec-ch-ua-platform": '"Windows"',
+      "sec-ch-ua-platform-version": '"15.0.0"',
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "x-asbd-id": "359341",
+      "x-fb-lsd": "Iarr4VRK-cx4Wex3XHyt5L",
+      "x-ig-d": "www",
+      cookie: COOKIE,
+      Referer: `https://www.instagram.com/reels/audio/${audioId}`,
+    },
+    body: formData.toString(),
+  });
 
 
   const rawText = await response.text();
