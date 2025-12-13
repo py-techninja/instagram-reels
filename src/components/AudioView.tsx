@@ -114,6 +114,7 @@ export default function AudioView() {
         {loading && <p>Loading...</p>}
         {error && <p className="text-red-600">{error}</p>}
 
+        {audioMetadata && <AudioMetadataDisplay metadata={audioMetadata} />}
         {metadata && (
           <>
             <MetadataDisplay metadata={metadata} />
