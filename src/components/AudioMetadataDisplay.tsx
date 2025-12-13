@@ -18,40 +18,36 @@ export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayP
 
   return (
     <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">
-        
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start">
         {/* Cover Image */}
         <div className="flex justify-center md:justify-start">
           {metadata.coverImage ? (
             <img
               src={metadata.coverImage}
               alt={metadata.soundTitle ?? 'Audio cover'}
-              className="w-30 h-30 rounded-lg object-cover shadow-md"
+              className="w-32 h-32 rounded-lg object-cover shadow-md"
             />
           ) : (
-            <div className="w-25 h-25 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400">
+            <div className="w-32 h-32 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
               No cover image
             </div>
           )}
         </div>
 
         {/* Audio Info */}
-        <div className="md:col-span-2 space-y-4">
+        <div className="space-y-3">
           <div>
-            <h3 className="text-xl font-semibold text-slate-900">
+            <h3 className="text-lg font-semibold text-slate-900 leading-tight">
               {metadata.soundTitle ?? 'Unknown title'}
             </h3>
 
-            <p className="text-slate-600 mt-1">
+            <p className="text-slate-600 text-sm">
               {metadata.artistName ?? 'Unknown artist'}
             </p>
           </div>
 
           {/* Meta rows */}
-          <div className="space-y-2 text-sm">
+          <div className="space-y-1 text-sm">
             {metadata.igUsername && (
               <div className="flex items-center gap-2 text-slate-700">
                 <Instagram className="w-4 h-4 text-pink-600" />
@@ -67,28 +63,24 @@ export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayP
 
           {/* Audio Player */}
           {metadata.soundUrl && (
-            <div className="pt-4">
-              <audio
-                controls
-                className="w-full"
-                src={metadata.soundUrl}
-              />
-            </div>
+            <audio
+              controls
+              className="w-full max-w-md mt-2"
+              src={metadata.soundUrl}
+            />
           )}
 
           {/* External links */}
           {metadata.spotifyUrl && (
-            <div className="pt-3">
-              <a
-                href={metadata.spotifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700"
-              >
-                Open on Spotify
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+            <a
+              href={metadata.spotifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700 mt-1"
+            >
+              Open on Spotify
+              <ExternalLink className="w-4 h-4" />
+            </a>
           )}
         </div>
       </div>
