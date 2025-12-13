@@ -35,12 +35,12 @@ async function getAudioData(audioId: string) {
 
   const audioMetadata = {
         coverImage: audioDbMetadata.cover_image_url,
-        igUsername: audioMetadata.ig_username,
-        artistName: audioMetadata.artist_name,
-        soundDuration: audioMetadata.duration_ms,
-        soundUrl: audioMetadata.sound_url,
-        soundTitle: audioMetadata.sound_title,
-        spotifyUrl: audioMetadata.spotify_url, 
+        igUsername: audioDbMetadata.ig_username,
+        artistName: audioDbMetadata.artist_name,
+        soundDuration: audioDbMetadata.duration_ms,
+        soundUrl: audioDbMetadata.sound_url,
+        soundTitle: audioDbMetadata.sound_title,
+        spotifyUrl: audioDbMetadata.spotify_url, 
   };
   
   const metadata = {
