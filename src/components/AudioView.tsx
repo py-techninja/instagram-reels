@@ -33,6 +33,8 @@ async function getAudioData(audioId: string) {
     .eq("audio_id", audioId)
     .maybeSingle();
 
+  console.log(audioMetadata);
+  
   const metadata = {
       totalViews: reels?.reduce((sum, r) => sum + (r.views || 0), 0) || 0,
       totalLikes: reels?.reduce((sum, r) => sum + (r.likes || 0), 0) || 0,
