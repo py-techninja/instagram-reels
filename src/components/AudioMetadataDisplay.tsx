@@ -1,65 +1,95 @@
-import { Eye, Heart, MessageCircle, Zap } from 'lucide-react';
-import CircularProgress from './CircularProgress';
+import { Instagram, Music, ExternalLink } from 'lucide-react';
 import { AudioMetadata } from '../types';
 
 interface AudioMetadataDisplayProps {
   metadata: AudioMetadata;
 }
 
-const formatNumber = (num: number): string => {
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1) + 'M';
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + 'K';
-  }
-  return num.toString();
+const formatDuration = (ms?: number) => {
+  if (!ms) return '—';
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
 
 export default function AudioMetadataDisplay({ metadata }: AudioMetadataDisplayProps) {
+  if (!metadata) return null;
+
   return (
     <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-      <h2 className="text-2xl font-bold text-slate-800 mb-8">Scraping Metadata</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">
+        Audio Metadata
+      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
-        <div className="flex justify-center">
-          <CircularProgress
-            percentage={metadata.percentageScraped}
-            scrapedCount={metadata.scrapedPosts}
-            totalCount={metadata.totalPosts}
-          />
-        </div>
-        
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <Eye className="w-5 h-5 text-blue-600" />
-            <span className="text-xs font-semibold text-blue-600 uppercase">Total Views</span>
-          </div>
-          <div className="text-3xl font-bold text-slate-900">{formatNumber(metadata.totalViews)}</div>
-        </div>
-
-        <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <Heart className="w-5 h-5 text-red-600" />
-            <span className="text-xs font-semibold text-red-600 uppercase">Total Likes</span>
-          </div>
-          <div className="text-3xl font-bold text-slate-900">{formatNumber(metadata.totalLikes)}</div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        {/* Cover Image */}
+        <div className="flex justify-center md:justify-start">
+          {metadata.coverImage ? (
+            <img
+              src={metadata.coverImage}
+              alt={metadata.soundTitle ?? 'Audio cover'}
+              className="w-56 h-56 rounded-lg object-cover shadow-md"
+            />
+          ) : (
+            <div className="w-56 h-56 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400">
+              No cover image
+            </div>
+          )}
         </div>
 
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <MessageCircle className="w-5 h-5 text-purple-600" />
-            <span className="text-xs font-semibold text-purple-600 uppercase">Total Comments</span>
-          </div>
-          <div className="text-3xl font-bold text-slate-900">{formatNumber(metadata.totalComments)}</div>
-        </div>
+        {/* Audio Info */}
+        <div className="md:col-span-2 space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold text-slate-900">
+              {metadata.soundTitle ?? 'Unknown title'}
+            </h3>
 
-        <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <Zap className="w-5 h-5 text-amber-600" />
-            <span className="text-xs font-semibold text-amber-600 uppercase">Total Posts</span>
+            <p className="text-slate-600 mt-1">
+              {metadata.artistName ?? 'Unknown artist'}
+            </p>
           </div>
-          <div className="text-3xl font-bold text-slate-900">{metadata.totalPosts}</div>
+
+          {/* Meta rows */}
+          <div className="space-y-2 text-sm">
+            {metadata.igUsername && (
+              <div className="flex items-center gap-2 text-slate-700">
+                <Instagram className="w-4 h-4 text-pink-600" />
+                <span>@{metadata.igUsername}</span>
+              </div>
+            )}
+
+            <div className="flex items-center gap-2 text-slate-700">
+              <Music className="w-4 h-4 text-indigo-600" />
+              <span>Duration: {formatDuration(metadata.soundDuration)}</span>
+            </div>
+          </div>
+
+          {/* Audio Player */}
+          {metadata.soundUrl && (
+            <div className="pt-4">
+              <audio
+                controls
+                className="w-full"
+                src={metadata.soundUrl}
+              />
+            </div>
+          )}
+
+          {/* External links */}
+          {metadata.spotifyUrl && (
+            <div className="pt-3">
+              <a
+                href={metadata.spotifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700"
+              >
+                Open on Spotify
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
