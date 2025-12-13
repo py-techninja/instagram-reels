@@ -365,7 +365,6 @@ Deno.serve(async (req: Request) => {
     return new Response(
       JSON.stringify({
         error: "Failed to fetch reels",
-        igData: "Not here", 
         details: error instanceof Error ? error.message : "Unknown error",
       }),
       {
