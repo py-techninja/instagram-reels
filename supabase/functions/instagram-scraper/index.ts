@@ -9,6 +9,20 @@ const corsHeaders = {
 
 const COOKIE = 'ig_did=2586E831-2514-4530-89A7-EC88517C72D2; datr=4re2aF7ZsZw2MgPseyjelLpO; ig_nrcb=1; csrftoken=wtadSWmqz7dpHSG6xj0ahQY7H8YvaOMM; mid=aOLpjgALAAG9tEdm0Tc6KhtJCCTy; ds_user_id=58402963693; ps_l=1; ps_n=1; dpr=1.25; sessionid=58402963693%3AW854N5lOAlJsTk%3A1%3AAYgFNVEZLRj85BcF5PkpZX7_e7PRpCEQql4Hz7MlYQ; rur="LLA\05458402963693\0541796714759:01fe12ae70102697dda4255381d01c6290591abfda435cc53c4c18e079d424e1ab54da7d"; wd=982x695';
 
+function cors(req: Request) {
+  const headers = new Headers();
+
+  headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+
+  const requestHeaders = req.headers.get("Access-Control-Request-Headers");
+  if (requestHeaders) {
+    headers.set("Access-Control-Allow-Headers", requestHeaders);
+  }
+
+  return headers;
+}
+
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL") || "",
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
@@ -106,7 +120,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
   
   const mediaCount = data.payload.media_count?.clips_count || 0;
 
-  const mediaMetadata = data.payload.metadata?.music_info.music_asset_info || {};
+  const mediaMetadata = data.payload.metadata?.music_info?.music_asset_info || {};
 
   const coverImage = mediaMetadata.cover_artwork_uri;
   const igUsername = mediaMetadata.ig_username;
@@ -116,6 +130,16 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
   const soundTitle = mediaMetadata.title;
   const spotifyUrl = mediaMetadata.spotify_track_metadata?.spotify_listen_uri;
 
+  const audioMetadata = {
+    coverImage,
+    igUsername,
+    artistName,
+    soundDuration,
+    soundUrl,
+    soundTitle,
+    spotifyUrl
+  };
+  
   const reels: Reel[] = items.map((item: any) => {
     const media = item.media;
     const user = media.user;
@@ -145,6 +169,7 @@ const response = await fetch("https://www.instagram.com/api/v1/clips/music/", {
 
   return {
     reels,
+    audioMetadata: mediaMetadata ? audioMetadata : null,
     maxId: pagingInfo.max_id || "",
     hasMore: pagingInfo.more_available,
     totalClips: mediaCount,
@@ -155,7 +180,7 @@ Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
       status: 200,
-      headers: corsHeaders,
+      headers: cors(req),
     });
   }
 
@@ -169,13 +194,13 @@ Deno.serve(async (req: Request) => {
     if (error) {
       return new Response(
         JSON.stringify({ error: "Failed to fetch active sessions", details: error }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        { status: 500, headers: { ...cors(req), "Content-Type": "application/json" } }
       );
     }
 
     return new Response(JSON.stringify({ sessions: data }), {
       status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers: { ...cors(req), "Content-Type": "application/json" },
     });
   }
 
@@ -185,7 +210,7 @@ Deno.serve(async (req: Request) => {
     if (!audioId) {
       return new Response(JSON.stringify({ error: "audioId is required" }), {
         status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { ...cors(req), "Content-Type": "application/json" },
       });
     }
 
@@ -274,6 +299,24 @@ Deno.serve(async (req: Request) => {
       }
     }
 
+    if ( igData.audioMetadata ){
+      const audioMetadata = igData.audioMetadata;    
+      const { error: upsertError } = await supabase
+      .from("audio_metadata")
+      .insert({
+        audio_id: audioId,
+        cover_image_url: coverImage,
+        ig_username: igUsername,
+        artist_name: artistName,
+        duration_ms: soundDuration,
+        sound_url: soundUrl,
+        sound_title: soundTitle,
+        spotify_url: spotifyUrl, 
+        id: session.id,
+        last_updated: new Date().toISOString()
+      });
+    }
+
     const newScrapedCount = session.scraped_posts + igData.reels.length;
     const shouldComplete = !igData.hasMore;
 
@@ -306,12 +349,13 @@ Deno.serve(async (req: Request) => {
         sessionId: session.session_token,
         hasMore: igData.hasMore,
         reels: igData.reels,
+        audioMetadata: igData.audioMetadata,
         metadata,
         status: shouldComplete ? "completed" : "active",
       }),
       {
         status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { ...cors(req), "Content-Type": "application/json" },
       }
     );
   } catch (error) {
@@ -323,7 +367,7 @@ Deno.serve(async (req: Request) => {
       }),
       {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { ...cors(req), "Content-Type": "application/json" },
       }
     );
   }
