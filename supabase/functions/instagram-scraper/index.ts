@@ -59,27 +59,31 @@ async function fetchInstagramData(audioId: string, maxId: string): Promise<Scrap
     __d: "www",
     __user: "0",
     __a: "1",
-    __req: "4",
-    __hs: "20435.HCSV2:instagram_web_pkg.2.1...0",
+    __req: "o",
+    __hs: "20439.HCSV2:instagram_web_pkg.2.1...0",
     dpr: "1",
     __ccg: "MODERATE",
-    __rev: "1031048183",
-    __s: "e07h2u:155o8j:406d39",
-    __hsi: "7583263477445038855",
-  __dyn: "7xeUjG1mxu1syUbFp41twpUnwgU7SbzEdF8aUco2qwJxS0DU2wx609vCwjE1EE2Cw8G11wBz81s8hwGxu786a3a1YwBgao6C0Mo2swlo8od8-U2zxe2GewGw9a361qwuEjUlwhEe87q0oa2-azqwt8d-2u2J0bS1LwTwKG1pg2fwxyo6O1FwlA3a3zhAq4rwIxeUnAwCAxW1oxe6UaU3cyVrx60ma3a18whE984O",
-    __csr: "gR9dsO1R5Y-OMJnbGCJ49OclGJlTEyP8C9mACnh94miRJnWx6qp5ggpFVWGp3Vp8xBWXF3pW-CmLBDBCAXyp9FVECtaSaBhGJ3886XCizbhFEG9AhQbzogxDDAwwGFUtLtqzvyWHzUGiFF-cx7zEkyGGm89VUDg9bxfGqh4jCy994ufGbyay4uA6V8Sm8xSqcwl-7o199U01oikU5W587qdg9U1Fo4258iLo3mgiG26h0HnJ7zE9k0b8g0iyU6K0he04oEgo0HClwxwrEUxawc22i5Q7U96lj02Qo1bVCi5z09O0H92S0Uy0Cw8bOw1kGU760CohNowb00i0o0bOEsw2i60VE0mZw1WO",
-    __hsdp: "l0AA1pE4g9xyW2ckTkheYY9iP4nhHmGEZ5igxi4e4kbGia8SAUF3QzkkEaAdl2ph05x1wwb61eIom6S2xaA7y38fEpwOAxhy45aggwtEcPy47EbUbU6q0gG323amdAxq68twfy26bgrKawDwEUO2OeyUa84y10y82ywaS08Bg0Ny0mGawoUdUrwqE6F0vu0l60Po29w24o1TA1rwqE6y68hxm5-3O",
-    __hblp: "0di1XwmUjzU6O0xU3hwOK12wBBhUa88-fDz84u2Wqag-3-9yUpwLzU8o-2ii0ME43wMDxK9ABzrgmzUy7o2wwkF88ppk6XyFUvxCeUO2OeyUrz8aEtBwWy82ywaS68620qJ09O3S0xE1JE2fwBwoVU4yazU5e9xG4ErzE5DwqA1lwk81aE3dw8C3W0sC8w821WAwmU5W290mU4q27y8swDxGq44aBjx64XUf85m0EU",
+    __rev: "1031209824",
+    __s: "mzxblu:kahoip:vcg6ey",
+    __hsi: "7584892948126069921",
+    __dyn:
+      "7xeUjG1mxu1syUbFp41twWwIxu13wvoKewSAwHwNw9G2S7o2vwa24o0B-q1ew6ywaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo31w9O1lwxwQzXwae4UaEW2G0AEco5G1Wxfxm16wUwtE1wEbUGdG1QwTU9UaQ0Lo6-3u2WE5B08-269wr86C1mgcEed6hEhK2O4Xxui2qi7E5y4UrwHwGwa6bBK4o1lUG3a18whE984O",
+    __csr:
+      "gh8pPMJtiihk9M_NlihBZh4JZNaR4imAyp5jsx2lhSCKJBpvlmHBmiaiKF6Vd9HKl2aKFEAJ948QHHGGzp9ojCUSGKIBKuESGx68DhKUx1jXDUymQip6BUqx6aG6FQGBCKK6EhzEqGEDUWdF3oiiDGeAyUKv-jGWx6tqK59UzZ2UOpppbzqJkhyZ5l1SdwzGaxKazu58izUqxm0gm00lZKFoa81ZHG58uxqaw2d4u8gK7Uhw4pAUby2303qFUy9w3M83Qw1oow1Qbxe2B3Etyul0h84hxdwwwOBo4G0EE1Lpmi1om0j-1ZP0q82bwh64oak2yUhg1Xmm1bcew3hwIaN8mUbbwPw5Lw0gDE14U0baU7S09Bo0Iq0h3w1q2",
+    __hsdp:
+      "gR2N0_1swh0CjscNQan9SRf2h7JIriAEkmD6nEFmp78-hRLP2avPe2F2Fohoy5xbF0p20_hlwHQ6hwx3m4C68Aw4C3W7o9mp4wwUuwfm4U9HgieaxWm0AQi261pVo3qwn8mCzEnxGiEuUpyUdEy1UwZwxwCyoWu08Hw3z825weS0QUsweO3O1Yx64E3hxa0mK0VU7O09mw50w9J09m1oxK1o84E3xw",
+    __hblp:
+      "0nU7uaK6o6K2C213-1VwIwAwUw_BDzHwTxuBxmU8EK13wg-dwh99Emxi10wrQ1dzXxGagixnzoPBDwm8y2B4wxwyyUgxDByEjwaaElzEG12xqqEK9zoqAG7lyo-mm4ojx28whUc8K36-6U9ECeDx61Dw6Nwl819E2zwfy1Pw8m0Ao5K1dwh8S3a783Hgf87O4oiz85C1Rw-w4Qweu1Ywoo1WUybwt85C7U4m3O3G2d0r8a84OagkCxm7UqD88Gq5E3awnU4m",
     __sjsp:
-      "l0AA1pE4g9xyW2ckTkheYY8EJmht6JqGzQl9258hi153F8GbgV1G14K1Lgo82Nwkxxoroa41QxC",
+      "gR2N0_1swh0CjscNQan9SRffkV7JIriAEkmD6nEFmq88-hQm4oyawSwgrF0p20hBwi1wCdoigpwlEfE",
     __comet_req: "7",
     fb_dtsg:
-      "NAfvyBkocIQUkMwarN82iqf3i2sU6N5RPGsBag-DIx9XpzfE1YRjIsw:17865068956001195:1765477512",
-    jazoest: "26352",
-    lsd: "lG1jlx6c2IZJWIZin5Rv7-",
-    __spin_r: "1031048183",
+      "NAfvt5UjsUEJLC7e5da37KQqqqWzOPXMpaXKU_KZlA8wf9vXYBbJAqQ:17865068956001195:1765477512",
+    jazoest: "26299",
+    lsd: "cdqfXOYuQG1ioiu7OZYcm4",
+    __spin_r: "1031209824",
     __spin_b: "trunk",
-    __spin_t: "1765616116",
+    __spin_t: "1765995507",
     __crn: "comet.igweb.PolarisClipsAudioRoute",
   });
 
