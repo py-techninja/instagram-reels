@@ -101,7 +101,7 @@ export default function AccountsView() {
       headers: acc.headers,
       body_template: acc.body_template || "",
       status: acc.status,
-      cooldown_seconds: acc.cooldown_seconds || 0,
+      cooldown_seconds: acc.cooldown_seconds || 5,
     });
   };
 
