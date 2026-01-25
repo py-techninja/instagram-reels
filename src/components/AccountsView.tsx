@@ -87,7 +87,7 @@ export default function AccountsView() {
       headers: "",
       body_template: "",
       status: "active",
-      cooldown_seconds: 0,
+      cooldown_seconds: 5,
     });
   };
 
