@@ -166,7 +166,7 @@ export default function AccountsView() {
               }
             >
               <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="inactive">Blocked</option>
             </select>
 
             <input
